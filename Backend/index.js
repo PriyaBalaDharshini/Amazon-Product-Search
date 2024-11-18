@@ -7,7 +7,7 @@ const app = express();
 const PORT = 8000;
 
 app.use(cors({
-    origin: 'https://comforting-boba-fd0508.netlify.app/',
+    origin: 'https://comforting-boba-fd0508.netlify.app',
     methods: ['GET'],
 }));
 
