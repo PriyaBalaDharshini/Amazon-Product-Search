@@ -5,7 +5,6 @@ import { DataGrid } from '@mui/x-data-grid';
 const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(false);
-
   const [products, setProducts] = useState([])
 
   const handleSearch = async (e) => {
@@ -36,24 +35,25 @@ const App = () => {
   ];
 
   return (
-    <div className="App">
-      <h1>Amazon Search Product</h1>
-      <div className="search-bar">
+    <div className="container mx-auto px-4 text-center">
+      <h1 className='mt-5 text-3xl font-semibold'>Amazon Search Product</h1>
+      <div className="search-bar mt-5 flex flex-col md:flex-row justify-center items-center">
         <input
           type="text"
           placeholder='Search for products'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          className='mr-4 p-2 w-[300px] rounded-lg border border-gray-300 focus:outline-none'
         />
-        <button onClick={handleSearch} disabled={loading}>
+        <button onClick={handleSearch} disabled={loading} className='bg-green-300 px-4 py-1 rounded-lg font-semibold' >
           {loading ? 'Searching...' : 'Search'}
         </button>
       </div>
 
       <div>
         {products.length > 0 ?
-          (<p>{products.length} results found</p>)
-          : (<p>0 results found</p>)}
+          (<p className='mt-5'>{products.length} results found</p>)
+          : (<p className='mt-5'>No results found</p>)}
       </div>
 
       <div style={{ height: 500, width: '100%' }}>
@@ -63,6 +63,7 @@ const App = () => {
             columns={columns}
             pagination
             loading={loading}
+            className='m-6'
           />
         ) : null}
       </div>
