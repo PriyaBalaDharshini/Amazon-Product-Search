@@ -6,8 +6,6 @@ import * as cheerio from 'cheerio';
 const app = express();
 const PORT = 8000;
 
-
-
 app.use(cors())
 
 app.get("/", (req, res) => {
@@ -27,7 +25,6 @@ app.get("/search", async (req, res) => {
         console.log(data);
 
         const $ = cheerio.load(data);
-
         const products = []
 
         $('.s-result-item').each((i, ele) => {
@@ -45,11 +42,11 @@ app.get("/search", async (req, res) => {
                 })
             }
         })
-        res.json({ products })
+        res.send({ products })
 
     } catch (error) {
         console.log('Error getting data:', error.message);
-        res.status(500).json({ error: "Error in fetching data" })
+        res.status(500).json({ error })
     }
 
 })
