@@ -21,7 +21,7 @@ const App = () => {
       console.log(result);
       setProducts(result.products.map((product, index) => ({ id: index + 1, sno: index + 1, ...product })))
     } catch (error) {
-      console.error("Error occurred while searching:", error);
+      console.log("Error occurred while searching:", error.message);
     } finally {
       setLoading(false);
     }

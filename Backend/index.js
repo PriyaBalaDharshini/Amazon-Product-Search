@@ -51,7 +51,7 @@ app.get("/search", async (req, res) => {
         res.json({ products })
 
     } catch (error) {
-        console.error('Error getting data:', error.message);
+        console.log('Error getting data:', error.message);
         res.status(500).json({ error: "Error in fetching data" })
     }
 
