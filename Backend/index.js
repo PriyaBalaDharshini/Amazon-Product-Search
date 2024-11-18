@@ -29,7 +29,6 @@ app.get("/search", async (req, res) => {
         });
         console.log(data);
 
-
         const $ = cheerio.load(data);
 
         const products = []
