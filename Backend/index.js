@@ -6,12 +6,9 @@ import * as cheerio from 'cheerio';
 const app = express();
 const PORT = 8000;
 
-app.use(cors({
-    origin: 'https://comforting-boba-fd0508.netlify.app',
-    methods: ['GET'],
-}));
 
-/* app.use(cors()) */
+
+app.use(cors())
 
 app.get("/", (req, res) => {
     res.status(200).send("Backend")
