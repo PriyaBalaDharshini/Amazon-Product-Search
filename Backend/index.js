@@ -46,7 +46,7 @@ app.get("/search", async (req, res) => {
 
     } catch (error) {
         console.log('Error getting data:', error.message);
-        res.status(500).json({ error })
+        res.send(error)
     }
 
 })
