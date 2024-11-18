@@ -15,7 +15,8 @@ const App = () => {
 
     setLoading(true);
     try {
-      const response = await axios.get(`https://amazon-product-search.onrender.com/search?searchQuery=${searchQuery}`);  // Correct query parameter
+      /* const response = await axios.get(`https://amazon-product-search.onrender.com/search?searchQuery=${searchQuery}`);  */
+      const response = await axios.get(`http://localhost:8000/search?searchQuery=${searchQuery}`);
       const result = response.data;
       console.log(result);
       setProducts(result.products.map((product, index) => ({ id: index + 1, sno: index + 1, ...product })))
